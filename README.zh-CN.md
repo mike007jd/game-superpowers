@@ -64,7 +64,15 @@ Game Superpowers 分成两条主线：
 
 这个仓库的目标不是只让第二轮修改更强，而是让第一次产出就明显更像一个可玩的游戏。
 
-下面这个案例里，两次运行都使用 OpenCode 和 `MiniMax-M2.7-highspeed`，任务都是做一个单文件 FPS。关键区别只是其中一次使用了 `/using-game-superpowers`。
+下面这个案例里，两次运行都使用了：
+
+- OpenCode
+- 同一个模型：`MiniMax-M2.7-highspeed`
+- 同一个 FPS 任务
+
+关键区别只是其中一次使用了 `/using-game-superpowers`。
+
+### 同模型、同任务、首轮结果差距
 
 <table>
   <tr>
@@ -77,6 +85,8 @@ Game Superpowers 分成两条主线：
   </tr>
 </table>
 
+> 这两边展示的都是第一次 prompt 的结果，这也是这个仓库最关心的标准。
+
 | 维度 | 不用 Game Superpowers | 使用 Game Superpowers |
 | --- | --- | --- |
 | 首轮结果 | 这次运行里无法稳定进入可玩状态 | 可以启动并游玩的 FPS 结果 |
@@ -84,7 +94,26 @@ Game Superpowers 分成两条主线：
 | 交互质量 | 起始流程弱，反馈也不够清楚 | 起始流程更清晰，UI、反馈和声音更完整 |
 | 整体表现 | 更像粗糙 blockout | 美术方向、界面和游戏感更完整 |
 
+### 这个案例里包含什么
+
+- prompt 截图
+- 结果截图
+- 可下载的单文件 HTML
+- 明确标注的同模型对比条件
+
 完整说明和可下载文件见 [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prompt-fps.md)。
+
+### 欢迎更多社区 Benchmark
+
+如果你想真正测试这个仓库，不要只看文案，最好自己做同任务对比。
+
+我们尤其欢迎这些方向的案例：
+
+- 原始模型输出 vs Game Superpowers
+- 不同模型下的同任务对比
+- Game Superpowers vs 其他游戏向 agent 工作流
+
+Benchmark 提交建议见 [`docs/community-benchmarks.md`](./docs/community-benchmarks.md)。
 
 ## 安装
 

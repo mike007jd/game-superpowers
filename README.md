@@ -93,7 +93,15 @@ flowchart TD
 
 This repository is meant to improve the very first outcome, not only the polished second pass.
 
-In the case study below, both runs used OpenCode with `MiniMax-M2.7-highspeed` on the same FPS task. The key difference was whether the request used `/using-game-superpowers`.
+In the case study below, both runs used:
+
+- OpenCode
+- the same model: `MiniMax-M2.7-highspeed`
+- the same general FPS task
+
+The key difference was whether the request used `/using-game-superpowers`.
+
+### Same Model, Same Task, First-Prompt Difference
 
 <table>
   <tr>
@@ -106,6 +114,8 @@ In the case study below, both runs used OpenCode with `MiniMax-M2.7-highspeed` o
   </tr>
 </table>
 
+> Both outputs came from the first prompt. This is the standard we care about most.
+
 | Aspect | Without Game Superpowers | With Game Superpowers |
 | --- | --- | --- |
 | First-prompt result | Not reliably playable in this run | Playable first-person shooter result |
@@ -113,7 +123,26 @@ In the case study below, both runs used OpenCode with `MiniMax-M2.7-highspeed` o
 | Interaction quality | Weak start flow and low-confidence feedback | Clear start flow, better UI, feedback, and sound |
 | Presentation | Rough blockout feel | Stronger art direction and clearer game framing |
 
+### What is included
+
+- prompt screenshots
+- result screenshots
+- downloadable single-file HTML outputs
+- an explicit same-model comparison setup
+
 See the full write-up and downloadable artifacts in [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prompt-fps.md).
+
+### Community Benchmarks Wanted
+
+If you want to pressure-test this repository, do not just read the prompts. Run your own same-task comparisons.
+
+We especially want more examples that compare:
+
+- raw model output vs Game Superpowers
+- different models on the same task
+- Game Superpowers vs other game-focused agent workflows
+
+Benchmark contribution guidelines live in [`docs/community-benchmarks.md`](./docs/community-benchmarks.md).
 
 ## Installation
 
