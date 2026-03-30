@@ -1,6 +1,6 @@
 ---
 name: game-audio-feedback-audit
-description: Audit the project’s audio layer as UX feedback: UI sounds, success/failure signals, danger cues, layering, and semantic sound priorities.
+description: "Audit the project's audio layer as UX feedback: UI sounds, success/failure signals, danger cues, layering, and semantic sound priorities."
 license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access; shell/build access improves evidence quality.
 metadata:
@@ -33,4 +33,3 @@ Use:
 
 ## When evidence is weak
 If assets or hooks exist but runtime behavior is unclear, classify findings as inferred and explain what remains unverified.
-

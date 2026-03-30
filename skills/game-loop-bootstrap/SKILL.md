@@ -1,6 +1,6 @@
 ---
 name: game-loop-bootstrap
-description: Establish the game-native architecture: managers, state flow, player control, camera, UI ownership, and other core systems needed for a maintainable build.
+description: "Establish the game-native architecture: managers, state flow, player control, camera, UI ownership, and other core systems needed for a maintainable build."
 license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access.
 metadata:

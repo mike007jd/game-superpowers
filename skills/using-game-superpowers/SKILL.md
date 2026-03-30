@@ -1,6 +1,6 @@
 ---
 name: using-game-superpowers
-description: Use when the task is about building, auditing, or improving a game project with this Game Superpowers skill collection. Acts as the collection bootstrap skill: classify the request, choose the right specialized game skills, and coordinate them instead of trying to solve the entire task ad hoc.
+description: "Use when the task is about building, auditing, or improving a game project with this Game Superpowers skill collection. Acts as the collection bootstrap skill: classify the request, choose the right specialized game skills, and coordinate them instead of trying to solve the entire task ad hoc."
 ---
 # Using Game Superpowers
 

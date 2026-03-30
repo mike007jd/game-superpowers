@@ -1,6 +1,6 @@
 ---
 name: game-feedback-audit
-description: Audit interaction feedback quality: input acknowledgment, hit/collect/reward/failure signaling, danger telegraphing, and state-transition clarity.
+description: "Audit interaction feedback quality: input acknowledgment, hit/collect/reward/failure signaling, danger telegraphing, and state-transition clarity."
 license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access; shell/build access improves evidence quality.
 metadata:
@@ -36,4 +36,3 @@ Use:
 
 ## Important
 A feature that technically works but gives weak or missing feedback should be marked as partially complete, not fully complete.
-

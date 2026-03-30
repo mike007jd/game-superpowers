@@ -1,6 +1,6 @@
 ---
 name: game-live-risk-audit
-description: Audit risk in shipped or high-risk projects: rollback danger, compatibility hazards, state corruption, operational blast radius, and should-not-touch areas.
+description: "Audit risk in shipped or high-risk projects: rollback danger, compatibility hazards, state corruption, operational blast radius, and should-not-touch areas."
 license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access; shell/build access improves evidence quality.
 metadata:
@@ -34,4 +34,3 @@ Use:
 
 ## Important
 When risk is high, recommendations should bias toward small, reversible, well-isolated fixes.
-
