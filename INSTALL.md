@@ -48,6 +48,7 @@ Because this repository contains `.claude/skills/`, Claude Code will load those 
 This means:
 - Claude discovers the compatibility path
 - those entries point back to `skills/`
+- `.claude/shared` and `.claude/schemas` also point back to the repository roots that skills reference
 - you should edit `skills/`, not `.claude/skills/`
 
 ### Option B — personal install
@@ -56,7 +57,10 @@ This means:
 bash scripts/install-claude-skills.sh
 ```
 
-This symlinks each skill into `~/.claude/skills/`.
+This symlinks each skill into `~/.claude/skills/` and also links:
+
+- `~/.claude/shared` -> this repo's `shared/`
+- `~/.claude/schemas` -> this repo's `schemas/`
 
 It does not copy the skill folders.
 
@@ -132,5 +136,6 @@ Use Game Superpowers to build a polished prototype.
 
 - Claude project/add-dir mode is the most official-friendly way to use the full collection without a plugin.
 - Codex user install works well with symlinked skill folders.
+- Claude personal install also links `shared/` and `schemas/` at the `~/.claude/` root because many skills reference them via relative paths.
 - If `.claude/skills/` or `.agents/skills/` looks strange in a file browser, that is expected: they are compatibility symlink paths that point back to `skills/`.
 - If a skill does not appear immediately, restart the host.
