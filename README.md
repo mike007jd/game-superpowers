@@ -4,25 +4,25 @@
 
 Game development skills for Claude Code and Codex.
 
-- build, audit, polish, and repair game projects
-- game-native workflow routing instead of generic coding prompts
-- reusable skills under `skills/`
+Build, audit, polish, and repair game projects with reusable game-native skills.
 
-## Install
+## At a glance
 
-Full setup instructions live in [`INSTALL.md`](./INSTALL.md).
+- for Claude Code and Codex
+- skills live in `skills/`
+- install locally, fork freely, use selectively
 
-### Claude Code
+## Quickstart
 
-Recommended:
+### Claude
 
-1. Project / additional-directory mode
+Use the whole repo:
 
 ```bash
 claude --add-dir /path/to/game-superpowers-skills-only
 ```
 
-2. Personal install
+Or install into your personal skills:
 
 ```bash
 bash scripts/install-claude-skills.sh
@@ -30,21 +30,19 @@ bash scripts/install-claude-skills.sh
 
 ### Codex
 
-Recommended:
-
-1. User install
+Install into your user skills:
 
 ```bash
 bash scripts/install-codex-skills.sh
 ```
 
-2. Repo-scoped install
+Or copy or symlink selected skills into a project's `.agents/skills/`.
 
-Copy or symlink selected skills into a project's `.agents/skills/`.
+Full setup instructions: [`INSTALL.md`](./INSTALL.md)
 
 ## Use
 
-### Collection entrypoint
+### Entrypoint
 
 - Claude: `/using-game-superpowers`
 - Codex: `$using-game-superpowers`
@@ -73,7 +71,7 @@ flowchart TD
 
 Case study: [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prompt-fps.md)
 
-## What's in this repo
+## Repo Layout
 
 - `skills/` — the full Game Superpowers skill library
 - `schemas/` — shared structured output schemas
@@ -82,15 +80,11 @@ Case study: [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prom
 - `.agents/skills/` — Codex discovery symlinks pointing back to `skills/`
 - `scripts/` — installers and validation helpers
 
-Important:
-
 - `skills/` is the only source of truth
 - `.claude/skills/` and `.agents/skills/` are compatibility paths, not a second copy of the library
 - if your platform or archive tool handles symlinks poorly, inspect `skills/` first
 
 ## Includes
-
-The collection currently includes:
 
 - bootstrap and routing skills
 - build planning and strategy skills
@@ -100,9 +94,9 @@ The collection currently includes:
 - audit and scorecard skills
 - browser specialist skills for 2D and 3D web work
 
-## Contributing
+## Development
 
-Suggested starting points:
+Start here:
 
 - `skills/using-game-superpowers/SKILL.md`
 - `skills/game-super-build/SKILL.md`

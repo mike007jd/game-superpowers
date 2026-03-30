@@ -4,25 +4,25 @@
 
 一个给 Claude Code 和 Codex 用的游戏开发 skills 库。
 
-- 用来 build、audit、polish、repair 游戏项目
-- 用 game-native workflow 做路由，不是泛化编码提示词
-- 可复用 skills 全部放在 `skills/` 下
+用可复用的 game-native skills 来 build、audit、polish、repair 游戏项目。
 
-## 安装
+## 一眼看完
 
-完整安装说明见 [`INSTALL.md`](./INSTALL.md)。
+- 给 Claude Code 和 Codex 用
+- skills 全部放在 `skills/`
+- 可以本地安装、自由 fork、按需组合
 
-### Claude Code
+## Quickstart
 
-推荐方式：
+### Claude
 
-1. project / additional-directory 模式
+整个仓库直接接入：
 
 ```bash
 claude --add-dir /path/to/game-superpowers-skills-only
 ```
 
-2. personal install
+或者装到个人 skills：
 
 ```bash
 bash scripts/install-claude-skills.sh
@@ -30,21 +30,19 @@ bash scripts/install-claude-skills.sh
 
 ### Codex
 
-推荐方式：
-
-1. user install
+装到用户 skills：
 
 ```bash
 bash scripts/install-codex-skills.sh
 ```
 
-2. repo-scoped install
+或者把需要的 skills 复制或 symlink 到项目的 `.agents/skills/`。
 
-把需要的 skills 复制或 symlink 到项目的 `.agents/skills/`。
+完整安装说明见 [`INSTALL.md`](./INSTALL.md)。
 
 ## 使用
 
-### 总入口
+### 入口
 
 - Claude：`/using-game-superpowers`
 - Codex：`$using-game-superpowers`
@@ -73,7 +71,7 @@ flowchart TD
 
 案例：[`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prompt-fps.md)
 
-## 仓库里有什么
+## Repo Layout
 
 - `skills/`：完整的 Game Superpowers skills 库
 - `schemas/`：共享的结构化输出 schema
@@ -82,15 +80,11 @@ flowchart TD
 - `.agents/skills/`：供 Codex 发现的兼容 symlink，实际指回 `skills/`
 - `scripts/`：安装脚本和校验脚本
 
-请注意：
-
 - `skills/` 是唯一的 source of truth
 - `.claude/skills/` 和 `.agents/skills/` 只是兼容路径，不是第二份内容副本
 - 如果你的平台或压缩工具对 symlink 支持不好，请优先查看 `skills/`
 
 ## 包含内容
-
-当前这套库主要包括：
 
 - bootstrap 和 routing skills
 - build planning 和 strategy skills
@@ -100,9 +94,9 @@ flowchart TD
 - audit 和 scorecard skills
 - 面向 2D / 3D web 游戏工作的 browser specialist skills
 
-## 贡献
+## 开发
 
-建议先看：
+先看这些：
 
 - `skills/using-game-superpowers/SKILL.md`
 - `skills/game-super-build/SKILL.md`
