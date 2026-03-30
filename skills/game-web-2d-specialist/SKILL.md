@@ -5,7 +5,7 @@ license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access.
 metadata:
   author: game-superpowers
-  version: "1.1.1"
+  version: "1.2.0"
   domain: game-development
 ---
 
@@ -39,3 +39,14 @@ Write or update `docs/game-studio/backend-implementation.md`.
 ## Important
 Be concrete about architecture patterns, layering, and tradeoffs.
 Do not pretend the backend is irrelevant once the route is chosen.
+Do not begin implementation if the gameplay shape is still ambiguous.
+
+Before coding, confirm or inherit all of these:
+- camera / presentation model
+- movement grammar
+- obstacle or enemy grammar
+- fail and restart loop
+- HUD priority
+
+For archetypes like `runner`, `platformer`, `survivor`, or `breakout`, explicitly lock the subtype first.
+Example: `runner` is not specific enough by itself. Decide whether it is lane-based, side-view platform, or top-down dodge before implementation begins.

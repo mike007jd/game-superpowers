@@ -37,6 +37,7 @@ Also classify project state:
 ### For greenfield or large new work
 Start with:
 - `game-concept-brainstorm` if fantasy / goals are unclear
+- `game-concept-brainstorm` by default for one-prompt game generation, showcase builds, benchmark runs, or any request using archetype words such as `runner`, `platformer`, `survivor`, `shooter`, `breakout`, `fps`, `dungeon crawler`, or `arena`
 - `game-scope-profile`
 - `game-build-strategy`
 - `game-super-build`
@@ -86,6 +87,10 @@ Bias toward:
 - Keep the user aligned on quality target: `first-playable`, `polished-prototype`, `production-feature`, or `live-patch`.
 - For live or risky projects, prefer audit-first and surgical changes.
 - For greenfield AI-native work, allow larger coherent changes when the user explicitly wants aggressive progress.
+- Treat single-prompt game generation as a high-ambiguity build problem, not as a trivial implementation request.
+- Before coding browser games, lock the spatial model, camera/view model, control grammar, obstacle grammar, and first-30-seconds promise.
+- If the host supports parallel subagents and the user wants the strongest result rather than the cheapest one, use worker split and cross-checks instead of one long monolithic pass.
+- Require a fresh runtime verification pass before claiming a benchmark or showcase build is complete.
 
 ## Output expectation
 
@@ -95,3 +100,8 @@ At the beginning of a task, briefly state:
 - which 2–5 Game Superpowers skills you are using next
 
 Then proceed with those specialized skills.
+
+For benchmark or showcase builds, also state:
+- whether concept lock is required before implementation
+- whether you are spending extra exploration tokens for a stronger first result
+- whether you are using host-supported parallel worker / verifier passes

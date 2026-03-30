@@ -5,7 +5,7 @@ license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access; shell/build access improves verification.
 metadata:
   author: game-superpowers
-  version: "1.1.1"
+  version: "1.2.0"
   domain: game-development
 ---
 
@@ -69,7 +69,8 @@ Use these shared assets when relevant:
    - Use `game-project-state-assessment`.
    - Inspect the repo before assuming anything.
 3. **Lock the fantasy.**
-   - Use `game-concept-brainstorm` when the request is vague, dreamy, or weakly differentiated.
+   - Use `game-concept-brainstorm` when the request is vague, dreamy, weakly differentiated, or archetype-ambiguous.
+   - Also use it by default for one-prompt benchmark or showcase builds even when the user sounds specific, because output-shape ambiguity is still common.
 4. **Sharpen requirements.**
    - Use `game-requirements-brainstorm` when priorities are unclear or contradictory.
 5. **Set scope tier.**
@@ -91,7 +92,9 @@ Use these shared assets when relevant:
    - Use `game-implementation-plan` and the selected execution mode.
 13. **Verify and critique.**
    - Use `game-playability-verifier` and `game-screenshot-critic`.
+   - For benchmark or showcase builds, require fresh runtime verification before claiming success.
 14. **Use compare or rolling modes only when justified.**
+   - If the host supports subagents and the user wants stronger first-pass quality, prefer worker split and cross-checks over one giant uninterrupted implementation run.
 
 ## Important
 For browser games, stack-neutral does not mean implementation-vague.

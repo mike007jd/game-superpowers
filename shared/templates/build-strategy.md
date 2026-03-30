@@ -3,6 +3,7 @@
 ## Chosen mode
 - **Development mode**:
 - **Quality target**:
+- **Exploration budget**:
 - **Why**:
 
 ## Policy
@@ -10,6 +11,8 @@
 - **Refactor policy**:
 - **Rewrite policy**:
 - **Compare-mode policy**:
+- **Worker / subagent policy**:
+- **Cross-check policy**:
 - **Verification depth**:
 - **Rollback expectations**:
 

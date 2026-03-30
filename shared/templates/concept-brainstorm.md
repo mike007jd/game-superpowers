@@ -15,6 +15,15 @@
 - fail state:
 - success fantasy:
 
+## Shape lock
+- chosen game form:
+- camera / view model:
+- movement grammar:
+- obstacle / encounter grammar:
+- fail and retry loop:
+- visual anchor:
+- first-screen promise:
+
 ## Design pillars (max 4)
 1.
 2.
@@ -38,3 +47,4 @@
 - recommended quality target:
 - recommended scope tier:
 - recommended build mode:
+- recommended exploration budget:
