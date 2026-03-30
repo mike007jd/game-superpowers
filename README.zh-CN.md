@@ -60,6 +60,32 @@ Game Superpowers 分成两条主线：
 
 而不是只关注底层图形库或前端框架。
 
+## 案例
+
+这个仓库的目标不是只让第二轮修改更强，而是让第一次产出就明显更像一个可玩的游戏。
+
+下面这个案例里，两次运行都使用 OpenCode 和 `MiniMax-M2.7-highspeed`，任务都是做一个单文件 FPS。关键区别只是其中一次使用了 `/using-game-superpowers`。
+
+<table>
+  <tr>
+    <td><strong>不用 Game Superpowers</strong></td>
+    <td><strong>使用 Game Superpowers</strong></td>
+  </tr>
+  <tr>
+    <td><img src="./docs/case-studies/assets/one-prompt-fps/result-without-game-superpowers.jpg" alt="不用 Game Superpowers 的结果" width="100%"></td>
+    <td><img src="./docs/case-studies/assets/one-prompt-fps/result-with-game-superpowers-gameplay.jpg" alt="使用 Game Superpowers 的结果" width="100%"></td>
+  </tr>
+</table>
+
+| 维度 | 不用 Game Superpowers | 使用 Game Superpowers |
+| --- | --- | --- |
+| 首轮结果 | 这次运行里无法稳定进入可玩状态 | 可以启动并游玩的 FPS 结果 |
+| 语言一致性 | UI / 提示存在语言混用 | UI / 提示保持英文一致 |
+| 交互质量 | 起始流程弱，反馈也不够清楚 | 起始流程更清晰，UI、反馈和声音更完整 |
+| 整体表现 | 更像粗糙 blockout | 美术方向、界面和游戏感更完整 |
+
+完整说明和可下载文件见 [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prompt-fps.md)。
+
 ## 安装
 
 完整安装说明见 [`INSTALL.md`](./INSTALL.md)。

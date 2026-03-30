@@ -89,6 +89,32 @@ flowchart TD
     G --> K[UX + feedback + verifier skills]
 ```
 
+## Case Study
+
+This repository is meant to improve the very first outcome, not only the polished second pass.
+
+In the case study below, both runs used OpenCode with `MiniMax-M2.7-highspeed` on the same FPS task. The key difference was whether the request used `/using-game-superpowers`.
+
+<table>
+  <tr>
+    <td><strong>Without Game Superpowers</strong></td>
+    <td><strong>With Game Superpowers</strong></td>
+  </tr>
+  <tr>
+    <td><img src="./docs/case-studies/assets/one-prompt-fps/result-without-game-superpowers.jpg" alt="Baseline FPS output without Game Superpowers" width="100%"></td>
+    <td><img src="./docs/case-studies/assets/one-prompt-fps/result-with-game-superpowers-gameplay.jpg" alt="Playable FPS output with Game Superpowers" width="100%"></td>
+  </tr>
+</table>
+
+| Aspect | Without Game Superpowers | With Game Superpowers |
+| --- | --- | --- |
+| First-prompt result | Not reliably playable in this run | Playable first-person shooter result |
+| Language consistency | Mixed language UI / instructions | Consistent English UI / instructions |
+| Interaction quality | Weak start flow and low-confidence feedback | Clear start flow, better UI, feedback, and sound |
+| Presentation | Rough blockout feel | Stronger art direction and clearer game framing |
+
+See the full write-up and downloadable artifacts in [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prompt-fps.md).
+
 ## Installation
 
 See [`INSTALL.md`](./INSTALL.md) for the full instructions.
