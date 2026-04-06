@@ -14,11 +14,11 @@ metadata:
 ## Goal
 Audit shipped or high-risk projects before changes are proposed or applied.
 
-## Deliverables
-Update:
-- `docs/game-studio/audit/audit-summary.md`
-- `docs/game-studio/audit/risk-register.md`
-- `docs/game-studio/audit/scorecard.json`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/audit-summary.md`, `docs/game-studio/audit/risk-register.md`, `docs/game-studio/audit/scorecard.json`.
 
 Use:
 - `../../shared/checklists/live-risk-audit-checklist.md`

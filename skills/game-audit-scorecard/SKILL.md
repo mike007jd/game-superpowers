@@ -14,10 +14,11 @@ metadata:
 ## Goal
 Normalize audit findings into a structured scorecard that future sessions can read, compare, and build from.
 
-## Deliverables
-Create or update:
-- `docs/game-studio/audit/scorecard.json`
-- `docs/game-studio/audit/audit-summary.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present the scorecard and summary in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/scorecard.json` and `docs/game-studio/audit/audit-summary.md`.
 
 Use:
 - `../../shared/templates/audit-scorecard.md`

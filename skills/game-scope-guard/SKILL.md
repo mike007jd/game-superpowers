@@ -34,8 +34,11 @@ Do **not** equate “scope control” with “remove everything interesting.”
 - essential fail/retry and onboarding clarity
 - architecture cleanup that is necessary to make the requested change stable
 
-## Deliverable
-When you cut or defer scope, record the rationale in `docs/game-studio/plan.md` or `docs/game-studio/build-strategy.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): state scope decisions and rationale in conversation.
+- **minimal** or **full**: record the rationale in `docs/game-studio/plan.md` or `docs/game-studio/build-strategy.md`.
 
 
 ## Pair with

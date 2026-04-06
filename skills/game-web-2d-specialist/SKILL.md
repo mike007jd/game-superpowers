@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Turn a backend decision into concrete browser 2D implementation guidance without collapsing the whole system into library fandom.
 
-## Deliverable
-Write or update `docs/game-studio/backend-implementation.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present 2D implementation guidance in conversation.
+- **minimal** or **full**: write or update `docs/game-studio/backend-implementation.md`.
 
 ## Use when
 - the chosen backend profile is `web-2d-ui-first` or `web-2d-world-first`
@@ -40,6 +43,7 @@ Write or update `docs/game-studio/backend-implementation.md`.
 Be concrete about architecture patterns, layering, and tradeoffs.
 Do not pretend the backend is irrelevant once the route is chosen.
 Do not begin implementation if the gameplay shape is still ambiguous.
+If the request is primarily about Douyin H5 Interactive platform shell, portrait H5 delivery shape, app-shell structure, or requests phrased as `抖音互动空间` / `抖音互动H5`, route through `game-douyin-h5-interactive` first.
 
 Before coding, confirm or inherit all of these:
 - camera / presentation model

@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Determine what kind of project this is **before** choosing scope, architecture, or task sizing.
 
-## Deliverable
-Write `docs/game-studio/project-state.md` using `../../shared/templates/project-state-assessment.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present project state assessment in conversation.
+- **minimal** or **full**: write `docs/game-studio/project-state.md` using `../../shared/templates/project-state-assessment.md`.
 
 Use:
 - `../../schemas/project-state.schema.json`

@@ -1,12 +1,10 @@
-# Contributing to Game Superpowers
+# Making Changes
 
-Thanks for contributing.
+This repository is the skills-first source of truth for Game Superpowers.
 
-This repository is the skills-first source of truth for Game Superpowers. Keep changes small, explicit, and easy to review.
+Keep changes small, explicit, and easy to review.
 
-## What to contribute
-
-Good contributions usually fall into one of these buckets:
+## Good changes
 
 - add a new skill with a single, clear job
 - improve routing between existing skills
@@ -24,7 +22,7 @@ Prefer focused improvements over broad rewrites.
 - `.claude/skills/` and `.agents/skills/` are host-facing compatibility paths
 - `scripts/` contains installation and validation helpers
 
-## Skill authoring rules
+## Skill rules
 
 When changing or adding a skill:
 
@@ -59,15 +57,15 @@ Skill names should use lowercase kebab-case, for example:
 game-feedback-design
 ```
 
-## Local validation
+## Validation
 
-Run the validator before opening a pull request:
+Run:
 
 ```bash
 python3 scripts/validate_skills.py
 ```
 
-If the validator reports an error, fix it before submitting.
+Fix validator errors before submitting.
 
 ## Editing guidance
 
@@ -77,9 +75,7 @@ If the validator reports an error, fix it before submitting.
 - Keep docs and install instructions aligned with the current repository layout.
 - Do not commit local machine files such as `.DS_Store`, editor swap files, logs, or `.env` files.
 
-## Compatibility notes
-
-This repo is intentionally skills-first.
+## Compatibility
 
 - `skills/` is the only source of truth.
 - `.claude/skills/` and `.agents/skills/` exist to make host discovery easier.
@@ -89,7 +85,7 @@ When changing layout or install behavior, update `README.md` and `INSTALL.md` in
 
 ## Pull requests
 
-A good pull request should:
+A pull request should:
 
 - explain the problem being solved
 - keep scope tight

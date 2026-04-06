@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Make feedback part of the design, not something bolted on at the end.
 
-## Deliverables
-- `docs/game-studio/feedback-design.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present feedback design in conversation.
+- **minimal** or **full**: write `docs/game-studio/feedback-design.md`.
 
 Use:
 - `../../shared/templates/feedback-design.md`

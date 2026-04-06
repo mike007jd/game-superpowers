@@ -14,11 +14,11 @@ metadata:
 ## Goal
 Audit whether the project’s systems compose into a coherent game rather than a pile of disconnected features.
 
-## Deliverables
-Update:
-- `docs/game-studio/audit/audit-summary.md`
-- `docs/game-studio/audit/scorecard.json`
-- `docs/game-studio/audit/repair-roadmap.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/audit-summary.md`, `docs/game-studio/audit/scorecard.json`, `docs/game-studio/audit/repair-roadmap.md`.
 
 Use:
 - `../../shared/checklists/mechanics-systems-audit-checklist.md`

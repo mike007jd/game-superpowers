@@ -20,8 +20,14 @@ Default to **read-only first**.
 - `audit-and-plan` — produce findings and a repair roadmap
 - `audit-and-patch` — audit first, then patch only approved high-value issues
 
-## Required outputs
-Create and maintain:
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present all findings, scorecard, and repair directions in conversation. Do not create `docs/` files.
+- **minimal**: write only `audit-summary.md` for cross-session reference.
+- **full**: create and maintain all files listed below.
+
+Full output files (when strategy = full):
 - `docs/game-studio/audit/audit-summary.md`
 - `docs/game-studio/audit/scorecard.json`
 - `docs/game-studio/audit/ux-findings.md`

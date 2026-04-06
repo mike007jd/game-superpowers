@@ -25,5 +25,8 @@ Make the build visually intentional through programmable systems.
 - Protect readability while adding style.
 - For polished prototypes, visual direction belongs in scope now, not “later someday.”
 
-## Deliverable
-Update `docs/game-studio/spec.md` or `docs/game-studio/ux-flow.md` if visual rules or UI behavior change materially.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present visual direction decisions in conversation.
+- **minimal** or **full**: update `docs/game-studio/spec.md` or `docs/game-studio/ux-flow.md` if visual rules or UI behavior change materially.

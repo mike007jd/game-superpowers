@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Turn the concept into a concrete systems design that game developers can reason about and extend.
 
-## Deliverables
-- `docs/game-studio/system-design.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present systems design in conversation.
+- **minimal** or **full**: write `docs/game-studio/system-design.md`.
 
 Use:
 - `../../shared/templates/system-design.md`

@@ -14,11 +14,11 @@ metadata:
 ## Goal
 Audit whether the game clearly responds to the player and communicates consequences.
 
-## Deliverables
-Update:
-- `docs/game-studio/audit/audit-summary.md`
-- `docs/game-studio/audit/ux-findings.md`
-- `docs/game-studio/audit/scorecard.json`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/audit-summary.md`, `docs/game-studio/audit/ux-findings.md`, `docs/game-studio/audit/scorecard.json`.
 
 Use:
 - `../../shared/checklists/feedback-audit-checklist.md`

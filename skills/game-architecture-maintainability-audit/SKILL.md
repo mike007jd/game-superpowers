@@ -14,11 +14,11 @@ metadata:
 ## Goal
 Audit technical structure and changeability, especially where future iteration will become painful.
 
-## Deliverables
-Update:
-- `docs/game-studio/audit/audit-summary.md`
-- `docs/game-studio/audit/scorecard.json`
-- `docs/game-studio/audit/risk-register.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/audit-summary.md`, `docs/game-studio/audit/scorecard.json`, `docs/game-studio/audit/risk-register.md`.
 
 Use:
 - `../../shared/checklists/architecture-maintainability-audit-checklist.md`

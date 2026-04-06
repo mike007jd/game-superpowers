@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Turn a browser 3D backend decision into a concrete implementation path with explicit camera, focus, HUD, and performance rules.
 
-## Deliverable
-Write or update `docs/game-studio/backend-implementation.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present 3D implementation guidance in conversation.
+- **minimal** or **full**: write or update `docs/game-studio/backend-implementation.md`.
 
 ## Use when
 - the chosen backend profile is `web-3d-preview`

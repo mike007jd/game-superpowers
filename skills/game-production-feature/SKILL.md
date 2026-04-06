@@ -27,9 +27,15 @@ Use:
 - `../../shared/checklists/production-feature-checklist.md`
 - `../../shared/checklists/production-code-checklist.md`
 
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present quality target updates in conversation.
+- **minimal** or **full**: write or update `docs/game-studio/quality-target.md`.
+
 ## Workflow
 1. Protect the requested feature set.
 2. Respect project state and refactor policy.
-3. Write or update `docs/game-studio/quality-target.md`.
+3. Update quality target (see Outputs).
 4. Implement the feature to completion, not as a fake shell.
 5. Verify the feature and touched regressions before calling it done.

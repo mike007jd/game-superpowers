@@ -4,75 +4,81 @@ description: "Use when the task is about building, auditing, or improving a game
 ---
 # Using Game Superpowers
 
-Use this skill as the collection entrypoint for the Game Superpowers library.
-
-## Purpose
-
-This skill does not replace specialized skills. It decides **which Game Superpowers skills should be used next** and in what order.
-
-## When to use
-
-Use this skill when the request involves any of the following:
-- designing or building a new game feature or prototype
-- auditing an existing game project
-- improving game UI/UX, feedback, flow, or feel
-- planning scope, production readiness, or live-safe changes
-- choosing between build, audit, repair, and polish tracks
+Collection entrypoint. Classify the request, choose the next skills, and keep the workflow explicit.
 
 ## Classification
 
-First classify the request into one of these tracks:
-1. **Build track** — new project work, large feature work, prototype work, vertical slice work
-2. **Audit track** — existing project diagnosis, read-only review, risk assessment, UX review
-3. **Repair track** — user wants targeted fixes after diagnosis
-4. **Polish track** — user already has working gameplay and wants better feel, UI/UX, feedback, or production quality
+Track:
+- **Build** — new project, prototype, feature, vertical slice
+- **Audit** — diagnosis, read-only review, risk or UX review
+- **Repair** — targeted fixes after diagnosis
+- **Polish** — working game, better feel / UX / feedback / quality
 
-Also classify project state:
+Project state:
 - `greenfield`
 - `existing-prelaunch`
 - `live-risky`
 
-## Required routing behavior
+## Output strategy
 
-### For greenfield or large new work
-Start with:
+Choose one based on context before invoking downstream skills:
+- **inline** (default) — all findings, plans, and decisions stay in conversation. No `docs/` files written. Use for single-session work, small projects (< ~10 source files), or AI-driven auto-builds.
+- **minimal** — persist only files needed for cross-session continuity (typically `plan.md`, `quality-target.md`). Use for multi-step builds that may span sessions.
+- **full** — write all docs artifacts. Use only when the user explicitly asks, the project is team-based, or project complexity clearly justifies it.
+
+When in doubt, default to **inline**. A clean project directory is worth more than unread reports.
+
+Downstream skills that say "Required outputs: write docs/..." are overridden by this strategy. When inline or minimal, present those findings in conversation instead of writing files.
+
+## Routing
+
+### Build
 - `game-concept-brainstorm` if fantasy / goals are unclear
 - `game-concept-brainstorm` by default for one-prompt game generation, showcase builds, benchmark runs, or any request using archetype words such as `runner`, `platformer`, `survivor`, `shooter`, `breakout`, `fps`, `dungeon crawler`, or `arena`
 - `game-scope-profile`
 - `game-build-strategy`
 - `game-super-build`
 
-Then route into whichever of these are needed:
+Then add whichever of these are needed:
+- `game-douyin-h5-interactive` — when the platform is explicitly Douyin H5 Interactive or the user is clearly asking for a Douyin-style portrait H5 interactive delivery shape
 - `game-ux-flow-designer`
 - `game-feedback-design`
 - `game-loop-bootstrap`
 - `game-mechanics-systems-design`
+- `game-build-review`
+- `game-subagent-build-loop`
 - `game-web-2d-specialist`
 - `game-web-3d-specialist`
 - `game-polished-prototype`
 - `game-production-feature`
 
-### For existing projects and audits
-Start with:
+### Audit
 - `game-project-state-assessment`
 - `game-project-audit`
 
-Then load relevant audit skills such as:
-- `game-ux-flow-audit`
-- `game-hud-readability-audit`
-- `game-feedback-audit`
-- `game-audio-feedback-audit`
-- `game-feel-audit`
-- `game-mechanics-systems-audit`
-- `game-scope-completeness-audit`
-- `game-production-readiness-audit`
-- `game-architecture-maintainability-audit`
-- `game-live-risk-audit`
+Then add relevant audit skills based on what the project actually has:
+- `game-ux-flow-audit` — when: UI flow, menus, onboarding, or navigation exists
+- `game-hud-readability-audit` — when: HUD, overlay UI, or in-game information display exists
+- `game-feedback-audit` — when: interaction feedback, hit/collect/reward signals exist
+- `game-audio-feedback-audit` — when: project has audio layer or sound effects
+- `game-feel-audit` — when: real-time input, physics, or frame-driven game loop
+- `game-mechanics-systems-audit` — when: game loop, progression, scoring, or state machine exists
+- `game-scope-completeness-audit` — when: checking whether promised features are actually complete
+- `game-production-readiness-audit` — when: project targets production release
+- `game-architecture-maintainability-audit` — when: codebase is large enough for structural concerns (> ~20 files)
+- `game-live-risk-audit` — when: project-state == live-risky
 - `game-audit-scorecard`
 - `game-repair-roadmap`
 
-### For polishing or quality uplift
-Bias toward:
+### Repair
+- `game-repair-roadmap` (from audit findings or known issues)
+- `game-scope-guard`
+- `game-implementation-plan`
+- `game-production-code` when quality target >= polished-prototype
+- `game-playability-verifier`
+- `game-live-patch` when project-state == live-risky
+
+### Polish
 - `game-hud-feedback-polish`
 - `game-feedback-design`
 - `game-screenshot-critic`
@@ -80,28 +86,27 @@ Bias toward:
 - `game-audio-feedback-audit`
 - `game-feel-audit`
 
-## Operating principles
+### Trigger examples
+- Requests like `做一个 Douyin H5 Interactive 作品`, `抖音互动作品`, `抖音互动空间`, `抖音互动H5`, `竖屏 H5 互动页`, or `平台只接受 H5，要先定框架、文件结构和适配方式` should strongly bias toward `game-douyin-h5-interactive` during Build routing.
+- If the same request also includes real-time browser gameplay, combine it with `game-web-2d-specialist` after the platform shell and route are locked.
 
+## Rules
 - Do not jump straight into implementation before classifying the task.
 - Prefer specialized skills over ad hoc reasoning.
-- Keep the user aligned on quality target: `first-playable`, `polished-prototype`, `production-feature`, or `live-patch`.
+- Keep the quality target explicit: `first-playable`, `polished-prototype`, `production-feature`, or `live-patch`.
 - For live or risky projects, prefer audit-first and surgical changes.
-- For greenfield AI-native work, allow larger coherent changes when the user explicitly wants aggressive progress.
 - Treat single-prompt game generation as a high-ambiguity build problem, not as a trivial implementation request.
 - Before coding browser games, lock the spatial model, camera/view model, control grammar, obstacle grammar, and first-30-seconds promise.
-- If the host supports parallel subagents and the user wants the strongest result rather than the cheapest one, use worker split and cross-checks instead of one long monolithic pass.
+- Default to high-precision questioning for greenfield and showcase game work.
+- If the host supports subagents and the user wants the strongest result rather than the cheapest one, prefer a builder + reviewer + verifier loop instead of one long monolithic pass.
+- If the host supports parallel subagents and the task splits cleanly, parallelize builders only across disjoint ownership zones.
 - Require a fresh runtime verification pass before claiming a benchmark or showcase build is complete.
+- When the task involves cross-project reference or benchmarking (e.g. "match project B's quality in area X"), use Audit track on the reference project first, extract the specific patterns, then apply them to the target project via Repair or Build.
 
 ## Output expectation
 
-At the beginning of a task, briefly state:
+At the start, state:
 - which track you selected
 - current project state
+- output strategy (inline / minimal / full)
 - which 2–5 Game Superpowers skills you are using next
-
-Then proceed with those specialized skills.
-
-For benchmark or showcase builds, also state:
-- whether concept lock is required before implementation
-- whether you are spending extra exploration tokens for a stronger first result
-- whether you are using host-supported parallel worker / verifier passes

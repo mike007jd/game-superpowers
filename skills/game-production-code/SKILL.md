@@ -28,5 +28,8 @@ Use:
 - Keep the code readable for the next developer or next session.
 - If refactoring, document compatibility and rollback concerns.
 
-## Deliverable
-Update `docs/game-studio/architecture.md` and `docs/game-studio/quality-target.md` if needed so the production-quality expectations are explicit.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present production code expectations in conversation.
+- **minimal** or **full**: update `docs/game-studio/architecture.md` and `docs/game-studio/quality-target.md`.

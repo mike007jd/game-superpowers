@@ -11,6 +11,7 @@ Build, audit, polish, and repair game projects with reusable game-native skills.
 - for Claude Code and Codex
 - skills live in `skills/`
 - install locally, fork freely, use selectively
+- source of truth stays in this repo
 
 ## Quickstart
 
@@ -69,8 +70,6 @@ flowchart TD
     G --> K[UX + feedback + verifier skills]
 ```
 
-Case study: [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prompt-fps.md)
-
 ## Repo Layout
 
 - `skills/` — the full Game Superpowers skill library
@@ -80,11 +79,13 @@ Case study: [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prom
 - `.agents/skills/` — Codex discovery symlinks pointing back to `skills/`
 - `scripts/` — installers and validation helpers
 
+Notes:
+
 - `skills/` is the only source of truth
 - `.claude/skills/` and `.agents/skills/` are compatibility paths, not a second copy of the library
 - if your platform or archive tool handles symlinks poorly, inspect `skills/` first
 
-## Includes
+## Library
 
 - bootstrap and routing skills
 - build planning and strategy skills
@@ -96,7 +97,7 @@ Case study: [`docs/case-studies/one-prompt-fps.md`](./docs/case-studies/one-prom
 
 ## Development
 
-Start here:
+Read these first:
 
 - `skills/using-game-superpowers/SKILL.md`
 - `skills/game-super-build/SKILL.md`
@@ -110,7 +111,7 @@ Before opening a pull request, run:
 python3 scripts/validate_skills.py
 ```
 
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for contribution rules and local validation.
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for repository change rules and local validation.
 See [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md) for collaboration expectations.
 
 ## License

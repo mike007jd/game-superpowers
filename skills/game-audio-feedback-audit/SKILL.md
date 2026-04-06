@@ -14,11 +14,11 @@ metadata:
 ## Goal
 Audit audio as part of the feedback grammar rather than as a late cosmetic layer.
 
-## Deliverables
-Update:
-- `docs/game-studio/audit/audit-summary.md`
-- `docs/game-studio/audit/ux-findings.md`
-- `docs/game-studio/audit/scorecard.json`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/audit-summary.md`, `docs/game-studio/audit/ux-findings.md`, `docs/game-studio/audit/scorecard.json`.
 
 Use:
 - `../../shared/checklists/audio-feedback-audit-checklist.md`

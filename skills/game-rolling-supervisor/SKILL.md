@@ -14,9 +14,11 @@ metadata:
 ## Goal
 Push a game project through repeated autonomous passes without letting one long context rot into uselessness.
 
-## Deliverables
-- `docs/game-studio/rolling-supervisor.md`
-- `docs/game-studio/rolling/state.json`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present rolling supervisor plan in conversation.
+- **minimal** or **full**: write `docs/game-studio/rolling-supervisor.md` and `docs/game-studio/rolling/state.json`.
 
 Use:
 - `../../shared/templates/rolling-supervisor-plan.md`

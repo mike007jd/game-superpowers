@@ -14,9 +14,11 @@ metadata:
 ## Goal
 Make a safe, reversible, production-minded change in a shipped or operationally risky project.
 
-## Deliverables
-- `docs/game-studio/release-safety.md`
-- `docs/game-studio/quality-report.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/release-safety.md`, `docs/game-studio/quality-report.md`.
 
 Use:
 - `../../shared/templates/release-safety.md`

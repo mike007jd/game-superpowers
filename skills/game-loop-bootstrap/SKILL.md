@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Create a maintainable gameplay architecture that matches the chosen target quality.
 
-## Deliverable
-Write or update `docs/game-studio/architecture.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present architecture decisions in conversation.
+- **minimal** or **full**: write or update `docs/game-studio/architecture.md`.
 
 ## Prefer abstractions like
 - `GameManager`

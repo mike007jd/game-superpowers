@@ -14,10 +14,11 @@ metadata:
 ## Goal
 Turn audit findings into an execution order that respects project state, risk, and quality target.
 
-## Deliverables
-Create or update:
-- `docs/game-studio/audit/repair-roadmap.md`
-- `docs/game-studio/audit/risk-register.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present the prioritized roadmap and risk items in conversation.
+- **minimal** or **full**: write `docs/game-studio/audit/repair-roadmap.md` and `docs/game-studio/audit/risk-register.md`.
 
 Use:
 - `../../shared/templates/repair-roadmap.md`

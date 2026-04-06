@@ -28,10 +28,8 @@ Say this explicitly before or while using it.
 - live-product iteration
 - post-architecture situations where the real blocker is not the backend
 
-## Deliverable
-Update `docs/game-studio/backend-decision.md` with:
-- compared options
-- criteria
-- result
-- why the winner won
-- token / cost note
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present comparison results in conversation (compared options, criteria, result, why the winner won, token / cost note).
+- **minimal** or **full**: update `docs/game-studio/backend-decision.md`.

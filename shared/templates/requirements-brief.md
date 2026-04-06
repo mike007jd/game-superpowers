@@ -26,4 +26,5 @@
 - 
 
 ## Open questions worth asking
-Keep this section very short. Only include questions that materially affect backend choice, risk, or feature completeness.
+Include every question that still materially affects subtype, UX quality, wow-factor, verification quality, backend choice, risk, or feature completeness.
+Do not minimize this section for appearances.

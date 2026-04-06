@@ -14,11 +14,11 @@ metadata:
 ## Goal
 Audit the player journey and moment-to-moment experience flow, especially the first 30 seconds.
 
-## Deliverables
-Append or update:
-- `docs/game-studio/audit/ux-findings.md`
-- `docs/game-studio/audit/audit-summary.md`
-- `docs/game-studio/audit/scorecard.json`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/ux-findings.md`, `docs/game-studio/audit/audit-summary.md`, `docs/game-studio/audit/scorecard.json`.
 
 Use:
 - `../../shared/checklists/ux-flow-audit-checklist.md`

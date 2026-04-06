@@ -5,19 +5,20 @@ license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access.
 metadata:
   author: game-superpowers
-  version: "1.1.0"
+  version: "1.2.0"
   domain: game-development
 ---
 
 # Game Requirements Brainstorm
 
 ## Goal
-Help the user reach a requirement set that is specific enough to build a strong result.
-This is not open-ended ideation for its own sake. It is requirement sharpening.
+Turn the request into a requirement set that is specific enough to build a strong result.
 
-## Deliverables
-- `docs/game-studio/requirements.md`
-- `docs/game-studio/quality-target.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present requirements and quality target in conversation.
+- **minimal** or **full**: write `docs/game-studio/requirements.md` and `docs/game-studio/quality-target.md`.
 
 Use:
 - `../../shared/templates/requirements-brief.md`
@@ -25,16 +26,13 @@ Use:
 
 ## Workflow
 1. Extract what the user definitely wants.
-2. Separate:
-   - must-build features
-   - must-not-cut qualities
-   - optional features
-   - explicit non-goals
+2. Separate must-build features, must-not-cut qualities, optional features, and explicit non-goals.
 3. Infer smart defaults when they are obvious.
-4. Ask at most a few decisive questions only if they materially affect backend choice, scope completeness, or risk.
-5. Write acceptance tests in user language.
-6. Decide whether the quality target should be `first-playable`, `polished-prototype`, `production-feature`, or `live-patch`.
+4. Ask high-value clarifying questions whenever missing information would materially affect game form, feature correctness, wow-factor, UX / onboarding, audio / feedback, or verification standards.
+5. Do not stop after one question if multiple unresolved details still meaningfully change the result.
+6. Write acceptance tests in user language.
+7. Decide whether the quality target should be `first-playable`, `polished-prototype`, `production-feature`, or `live-patch`.
 
 ## Important
-If the request is greenfield and the user wants a strong showcase result, do **not** automatically reduce the ask to a bare minimum.
-Instead, protect the features and qualities that define the fantasy and the “wow.”
+For greenfield showcase work, do not reduce the ask to a bare minimum.
+Default to high-precision questioning rather than question minimization.

@@ -33,8 +33,11 @@ Use visual evidence to judge whether the build actually looks understandable and
 - **polished-prototype**: hold a higher bar for coherence and perceived finish
 - **production-feature / live-patch**: check consistency with the rest of the product
 
-## Deliverable
-Append findings and repair priorities to `docs/game-studio/quality-report.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present critique findings and repair priorities in conversation.
+- **minimal** or **full**: append to `docs/game-studio/quality-report.md`.
 
 ## Reporting rules
 Separate:

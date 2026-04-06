@@ -15,8 +15,11 @@ metadata:
 Select the backend profile that best serves the requested outcome.
 Use `../../shared/reference/backend-profiles.md`.
 
-## Deliverable
-Write `docs/game-studio/backend-decision.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present backend decisions in conversation.
+- **minimal** or **full**: write `docs/game-studio/backend-decision.md`.
 
 ## Rules
 - Prefer capabilities over brand or fandom.

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Claude Code and Codex. Best results with shell/build/run access plus file read/write access.
 metadata:
   author: game-superpowers
-  version: "1.1.1"
+  version: "1.2.0"
   domain: game-development
 ---
 
@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Verify the build against its **actual target**, not a generic low bar.
 
-## Deliverable
-Write `docs/game-studio/quality-report.md`.
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present verification results in conversation.
+- **minimal** or **full**: write `docs/game-studio/quality-report.md`.
 
 ## Use
 - `../../shared/templates/quality-report.md`
@@ -49,3 +52,4 @@ For each critical check, report:
 Do not declare success merely because something runs.
 The verifier exists to catch “technically alive, product-wise weak” outcomes.
 When runtime evidence is missing, say so explicitly.
+In a multi-agent build flow, this skill is the default verifier stage after implementation review, not an optional final flourish.

@@ -15,6 +15,9 @@ Do **not** artificially break work into tiny human-style tickets when a larger A
 - **Mode**
 - **Goal**
 - **Why now**
+- **Primary builder**
+- **Reviewer**
+- **Verifier**
 - **Files to touch**
 - **Exact change**
 - **Verification**
@@ -27,3 +30,4 @@ Do **not** artificially break work into tiny human-style tickets when a larger A
 - In greenfield aggressive modes, build complete coherent chunks instead of endless TODO frames.
 - In live modes, preserve stability and compatibility.
 - If the chosen backend profile is still uncertain, resolve that before deep implementation.
+- For benchmark, showcase, and polished-prototype work, assume every serious task will pass through builder, reviewer, and verifier unless the user explicitly opts out.

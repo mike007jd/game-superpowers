@@ -14,11 +14,11 @@ metadata:
 ## Goal
 Audit whether the game seems responsive, readable, and satisfying rather than merely functional.
 
-## Deliverables
-Update:
-- `docs/game-studio/audit/audit-summary.md`
-- `docs/game-studio/audit/scorecard.json`
-- `docs/game-studio/audit/ux-findings.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present findings in conversation.
+- **minimal** or **full**: write to `docs/game-studio/audit/audit-summary.md`, `docs/game-studio/audit/scorecard.json`, `docs/game-studio/audit/ux-findings.md`.
 
 Use:
 - `../../shared/checklists/game-feel-audit-checklist.md`

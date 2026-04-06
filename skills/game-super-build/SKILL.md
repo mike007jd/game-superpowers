@@ -5,30 +5,22 @@ license: MIT
 compatibility: Claude Code and Codex. Best results with file read/write access; shell/build access improves verification.
 metadata:
   author: game-superpowers
-  version: "1.2.0"
+  version: "1.4.0"
   domain: game-development
 ---
 
 # Game Super Build
 
-You are the lead game-production workflow.
-Your job is **not** to produce the smallest thing that technically runs.
-Your job is to choose the right strategy for the project state and create the strongest result that fits the request.
+Lead game-production workflow. Choose the right strategy for project state and quality target instead of just producing the smallest thing that runs.
 
-## Core principle
-These are different situations and must not be treated the same:
-- greenfield / from scratch
-- existing but prelaunch
-- shipped
-- live / risky
+## Outputs
 
-It must also distinguish between:
-- build requests
-- audit requests
-- audit-then-repair requests
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): keep all findings, plans, and decisions in conversation. Do not create `docs/` files.
+- **minimal**: write only `plan.md` and `quality-target.md` for cross-session continuity.
+- **full**: create and maintain all files listed below.
 
-## Required outputs
-Create and maintain:
+Full output files (when strategy = full):
 - `docs/game-studio/project-state.md`
 - `docs/game-studio/concept-brainstorm.md`
 - `docs/game-studio/requirements.md`
@@ -47,39 +39,25 @@ Create and maintain:
 - `docs/game-studio/release-safety.md` (when shipped/live-risky)
 - `docs/game-studio/rolling-supervisor.md` (when autonomous rolling mode is enabled)
 
-Use these shared assets when relevant:
-- `../../shared/templates/project-state-assessment.md`
-- `../../shared/templates/concept-brainstorm.md`
-- `../../shared/templates/requirements-brief.md`
-- `../../shared/templates/game-build-brief.md`
-- `../../shared/templates/system-design.md`
-- `../../shared/templates/scope-profile.md`
-- `../../shared/templates/feedback-design.md`
-- `../../shared/templates/build-strategy.md`
-- `../../shared/templates/backend-decision.md`
-- `../../shared/templates/quality-target.md`
-- `../../shared/templates/quality-report.md`
-- `../../shared/templates/release-safety.md`
-- `../../shared/templates/rolling-supervisor-plan.md`
-
 ## Routing workflow
 1. **Detect whether the user wants a build, an audit, or both.**
-   - If the primary request is to inspect an existing repo, route to `game-project-audit` before proposing implementation changes.
+   - Existing repo inspection routes to `game-project-audit` first.
 2. **Assess project state first.**
    - Use `game-project-state-assessment`.
-   - Inspect the repo before assuming anything.
 3. **Lock the fantasy.**
-   - Use `game-concept-brainstorm` when the request is vague, dreamy, weakly differentiated, or archetype-ambiguous.
-   - Also use it by default for one-prompt benchmark or showcase builds even when the user sounds specific, because output-shape ambiguity is still common.
+   - Use `game-concept-brainstorm` when the request is vague, weakly differentiated, or archetype-ambiguous.
+   - Default to it for one-prompt benchmark or showcase builds.
 4. **Sharpen requirements.**
-   - Use `game-requirements-brainstorm` when priorities are unclear or contradictory.
+   - Use `game-requirements-brainstorm`.
+   - Default to high-precision questioning for greenfield and showcase builds.
 5. **Set scope tier.**
    - Use `game-scope-profile`.
 6. **Choose mode and quality target.**
    - Use `game-build-strategy`.
 7. **Choose or compare backend profiles.**
    - Use `game-backend-selector`.
-   - If the chosen profile is web 2D or browser 3D, route to the matching specialist skill so the implementation path becomes concrete.
+   - If the product is explicitly a Douyin H5 Interactive delivery, including requests phrased as `抖音互动作品`, `抖音互动空间`, or `抖音互动H5`, route through `game-douyin-h5-interactive` before deeper browser implementation specialization.
+   - If the chosen profile is web 2D or browser 3D, route to the matching specialist skill.
 8. **Design the user experience before system sprawl.**
    - Use `game-ux-flow-designer`.
 9. **Design feedback and feel explicitly.**
@@ -89,13 +67,13 @@ Use these shared assets when relevant:
 11. **Lock code standards.**
    - Use `game-production-code`.
 12. **Plan and implement.**
-   - Use `game-implementation-plan` and the selected execution mode.
-13. **Verify and critique.**
-   - Use `game-playability-verifier` and `game-screenshot-critic`.
-   - For benchmark or showcase builds, require fresh runtime verification before claiming success.
+   - Use `game-implementation-plan`.
+   - If the host supports subagents and the quality target is above a throwaway spike, prefer `game-subagent-build-loop`.
+13. **Review, verify, and critique.**
+   - Use `game-build-review`, `game-playability-verifier`, and `game-screenshot-critic`.
+   - Benchmark and showcase builds require fresh runtime verification before success is claimed.
 14. **Use compare or rolling modes only when justified.**
-   - If the host supports subagents and the user wants stronger first-pass quality, prefer worker split and cross-checks over one giant uninterrupted implementation run.
 
 ## Important
 For browser games, stack-neutral does not mean implementation-vague.
-Once the route is chosen, make the architecture and UI rules concrete.
+Do not confuse fewer questions with better workflow. The right default is higher-precision requirement collection, then stronger execution.

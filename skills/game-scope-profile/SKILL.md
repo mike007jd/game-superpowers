@@ -14,8 +14,11 @@ metadata:
 ## Goal
 Translate project state and quality target into a concrete scope tier.
 
-## Deliverables
-- `docs/game-studio/scope-profile.md`
+## Outputs
+
+Respect the output strategy set by `using-game-superpowers`:
+- **inline** (default): present scope profile in conversation.
+- **minimal** or **full**: write `docs/game-studio/scope-profile.md`.
 
 Use:
 - `../../shared/templates/scope-profile.md`
