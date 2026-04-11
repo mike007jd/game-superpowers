@@ -29,6 +29,12 @@ Or install into your personal skills:
 bash scripts/install-claude-skills.sh
 ```
 
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/install-claude-skills.ps1
+```
+
+This installs symlinks into `~/.claude/skills/` and sets up repo-local git hooks so later `git pull` and branch switches refresh those links automatically.
+
 ### Codex
 
 Install into your user skills:
@@ -37,9 +43,22 @@ Install into your user skills:
 bash scripts/install-codex-skills.sh
 ```
 
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/install-codex-skills.ps1
+```
+
+This installs the `~/.agents/skills/game-superpowers/` package root and sets up the same auto-sync hooks for future pulls and checkouts.
+
 Or copy or symlink selected skills into a project's `.agents/skills/`.
 
 Full setup instructions: [`INSTALL.md`](./INSTALL.md)
+
+### Updates after install
+
+- edits to existing skills apply immediately because the installed entries are symlinks back to this repo
+- added, renamed, or removed skills refresh automatically after `git pull` and branch switches
+- if you want to force a refresh manually, run `bash scripts/sync-all-skills.sh`
+- on Windows, use `powershell -ExecutionPolicy Bypass -File scripts/sync-all-skills.ps1`
 
 ## Use
 
@@ -77,7 +96,7 @@ flowchart TD
 - `shared/` — templates, references, checklists, and examples
 - `.claude/skills/` — Claude Code discovery symlinks pointing back to `skills/`
 - `.agents/skills/` — Codex discovery symlinks pointing back to `skills/`
-- `scripts/` — installers and validation helpers
+- `scripts/` — installers, auto-sync hooks, and validation helpers
 
 Notes:
 

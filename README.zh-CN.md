@@ -29,6 +29,12 @@ claude --add-dir /path/to/game-superpowers-skills-only
 bash scripts/install-claude-skills.sh
 ```
 
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/install-claude-skills.ps1
+```
+
+这会把 symlink 装进 `~/.claude/skills/`，并在当前仓库里顺手装上 git hooks，后续 `git pull` 和切分支时会自动刷新这些入口。
+
 ### Codex
 
 装到用户 skills：
@@ -37,9 +43,22 @@ bash scripts/install-claude-skills.sh
 bash scripts/install-codex-skills.sh
 ```
 
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/install-codex-skills.ps1
+```
+
+这会安装 `~/.agents/skills/game-superpowers/` 这个包根目录，并启用同样的自动刷新 hooks。
+
 或者把需要的 skills 复制或 symlink 到项目的 `.agents/skills/`。
 
 完整安装说明见 [`INSTALL.md`](./INSTALL.md)。
+
+### 安装后的更新机制
+
+- 已有 skill 内容改动会立刻生效，因为安装出来的是指回仓库的 symlink
+- skill 的新增、改名、删除会在后续 `git pull` 和切分支后自动刷新
+- 如果你想手动强制刷新，可以运行 `bash scripts/sync-all-skills.sh`
+- Windows 下可以运行 `powershell -ExecutionPolicy Bypass -File scripts/sync-all-skills.ps1`
 
 ## 使用
 
@@ -77,7 +96,7 @@ flowchart TD
 - `shared/`：模板、参考资料、检查表、示例
 - `.claude/skills/`：供 Claude Code 发现的兼容 symlink，实际指回 `skills/`
 - `.agents/skills/`：供 Codex 发现的兼容 symlink，实际指回 `skills/`
-- `scripts/`：安装脚本和校验脚本
+- `scripts/`：安装脚本、自动刷新脚本和校验脚本
 
 说明：
 
