@@ -25,7 +25,7 @@ npx skills remove game-superpowers -a codex claude-code -g
 
 ## 使用
 
-Codex 中用 `$game-superpowers`，Claude Code 中用 `/game-superpowers`，后面直接写需求：
+涉及制作、修改或点评游戏的请求会自动加载这个 skill。也可以手动调用：Codex 中用 `$game-superpowers`，Claude Code 中用 `/game-superpowers`，后面直接写需求：
 
 ```text
 用 $game-superpowers 把这个想法做成可玩的游戏。
@@ -41,6 +41,9 @@ Codex 中用 `$game-superpowers`，Claude Code 中用 `/game-superpowers`，后�
 - [玩法](skills/game-superpowers/references/gameplay.md)：玩家行为、选择、系统和内容。
 - [表现](skills/game-superpowers/references/presentation.md)：画面、动作、声音和反馈。
 - [玩家体验](skills/game-superpowers/references/player-experience.md)：操作、UI、引导和流程。
+- [运行时](skills/game-superpowers/references/runtime.md)：时间、输入、音频、屏幕、性能和存档。
+
+[evals/evals.json](evals/evals.json) 是一组测试提示，用来对比装与不装 skill 时 agent 的输出，不会随 skill 一起安装。
 
 ## 从旧版升级
 

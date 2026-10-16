@@ -1,0 +1,69 @@
+{
+  "skill_name": "game-superpowers",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make a playable Snake game in a single HTML file.",
+      "expected_output": "A working Snake game that the agent has launched and checked.",
+      "expectations": [
+        "The game loads without console errors and the snake responds to arrow keys or WASD",
+        "Movement uses a fixed tick or delta time rather than raw requestAnimationFrame frequency",
+        "Eating, growth, death and score are visible, and restart is reachable without reloading",
+        "The agent reports what it ran or verified and what remains unobserved"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My Phaser platformer's jump feels floaty and sometimes doesn't trigger when I press jump right before landing. Fix it.",
+      "expectations": [
+        "Adds an input buffer and coyote time with named tunable values",
+        "Adjusts gravity or fall speed asymmetrically (faster fall, variable jump height)",
+        "Does not change unrelated level geometry or collision"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add sound effects and background music to this browser game.",
+      "expectations": [
+        "Unlocks or resumes the audio context on the first user gesture",
+        "Separates music and SFX volume and provides mute that persists",
+        "Sounds are bound to real game events, not timers"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Here is a screenshot of my game's HUD. Critique it.",
+      "expectations": [
+        "Each point states the observed problem, its effect on the player and a concrete fix",
+        "Separates what the screenshot shows from inferences about motion, sound or rules it cannot show",
+        "Does not invent a scoring system or long report format"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "The enemies in my top-down shooter move twice as fast on my friend's 144 Hz monitor.",
+      "expectations": [
+        "Identifies frame-rate-dependent movement as the cause",
+        "Fixes it with delta time or a fixed timestep and clamps large deltas"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "帮我设计一个三分钟一局的手机休闲小游戏概念，不用写代码。",
+      "expectations": [
+        "Delivers a concept, not code",
+        "Describes the core loop as action, feedback, consequence and next decision",
+        "Accounts for touch controls and short-session pacing"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Hits in my Godot brawler feel weak. Make combat feel punchier.",
+      "expectations": [
+        "Uses hit-stop, knockback, flash, shake or sound layered on the actual hit event",
+        "Keeps effects short so they do not delay the next input",
+        "Exposes the feel values as tunable parameters"
+      ]
+    }
+  ]
+}
