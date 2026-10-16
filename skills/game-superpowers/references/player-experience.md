@@ -2,18 +2,23 @@
 
 ## Teach at the decision
 
-Make the next useful action apparent and show its consequence. Introduce information where the player needs it; use play to teach when possible. Keep explanation proportional to the game's complexity instead of assuming every game needs either a tutorial or no text.
+Make the next useful action apparent and show its consequence. Give information at the moment the player needs it, and teach through play when possible. Match the amount of explanation to the game's complexity: a simple game may need no text, and a complex one may need a guided first level.
 
-Show current identity, selection, availability and costs truthfully. Keep previewing an option distinct from committing it when exploration should be reversible. Loading and errors should communicate what is happening and how to proceed.
+Show identity, selection, availability and costs truthfully. Keep previewing an option separate from committing to it when exploration should be reversible. Loading and error states must say what is happening and how to proceed.
+
+Common faults:
+- Controls appear only on a title screen the player skips.
+- The game starts before the player has a chance to orient.
+- Buttons that look enabled do nothing.
 
 ## Protect attention and control
 
-Keep persistent HUD focused on current decisions and place secondary information where it can be consulted. Protect relevant play space; account for moving backgrounds, small screens and effects when choosing contrast and placement.
+Keep the persistent HUD focused on current decisions and put secondary information where it can be looked up. Keep the HUD clear of the play space the player needs. Check contrast and placement over moving backgrounds, on small screens and during heavy effects.
 
-Coordinate gameplay, camera and menu input so the same action does not unintentionally affect multiple layers. Return focus and control predictably after panels, pause and interruptions. Keep controls reachable on the intended device, with visible keyboard focus and comfortable touch areas where applicable.
+Route input so one press affects only the active layer: gameplay, camera or menu. After panels, pause and interruptions, return focus and control predictably. Keep controls reachable on the intended device. Provide visible keyboard focus and touch targets of about 44 px or more where applicable.
 
 ## Connect the journey
 
-Follow the ordinary route through entry, play and the relevant continuation. Carry selected state and intended progress across transitions, clear stale input, and make retry or return paths useful where they exist. Include only screens and systems that serve this game.
+Walk the ordinary route: entry, play and whatever comes next (game over, next level, results). Carry the selected state and earned progress across transitions, clear stale input, and make retry or return paths quick. Include only the screens and systems this game needs.
 
-Distinguish a route that can be executed from a route a new player can understand. Scripted actions can expose state errors; player observation answers whether affordances, teaching and motivation work.
+A route that a script can execute is not necessarily one a new player can understand. Scripted actions find state errors. Watching a player, or reasoning carefully as one, shows whether affordances, teaching and motivation work.

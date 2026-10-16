@@ -25,7 +25,7 @@ For project installations, use `-p` instead of `-g` when updating, and omit `-g`
 
 ## Use
 
-Invoke `$game-superpowers` in Codex or `/game-superpowers` in Claude Code, followed by your request:
+The skill loads automatically when a request involves making, fixing or critiquing a game. To force it, invoke `$game-superpowers` in Codex or `/game-superpowers` in Claude Code, followed by your request:
 
 ```text
 Use $game-superpowers to turn this idea into a playable game.
@@ -41,6 +41,9 @@ Inspired by [BubuGameSkill](https://github.com/mike007jd/BubuGameSkill): keep th
 - [Gameplay](skills/game-superpowers/references/gameplay.md) — player actions, choices, systems, and content.
 - [Presentation](skills/game-superpowers/references/presentation.md) — visuals, motion, sound, and feedback.
 - [Player experience](skills/game-superpowers/references/player-experience.md) — controls, UI, onboarding, and flow.
+- [Runtime](skills/game-superpowers/references/runtime.md) — timing, input, audio, screens, performance, and saves.
+
+[evals/evals.json](evals/evals.json) holds test prompts for comparing agent output with and without the skill. It is not installed with the skill.
 
 ## Upgrading from the old collection
 
