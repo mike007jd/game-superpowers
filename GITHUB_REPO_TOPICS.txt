@@ -1,1 +1,0 @@
-skills,agent-skills,claude-code,codex,game-development,game-design,ui-ux,ai-native,game-audit,developer-tools

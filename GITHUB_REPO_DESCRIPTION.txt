@@ -1,1 +1,0 @@
-Skills-first game development superpowers for Claude Code and Codex: build, audit, polish, and productionize game projects with reusable Agent Skills.

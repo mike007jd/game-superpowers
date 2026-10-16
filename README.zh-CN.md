@@ -2,166 +2,48 @@
 
 [English](./README.md)
 
-一个给 Claude Code、Codex 和 Gemini CLI 用的游戏开发 skills 库。
+一个精简的游戏开发 skill，聚焦玩法、表现、手感和玩家体验。
 
-用可复用的 game-native skills 来 build、audit、polish、repair 游戏项目。
+## 安装
 
-## 一眼看完
+使用 npm 分发的 [skills CLI](https://github.com/vercel-labs/skills)：
 
-- 给 Claude Code、Codex 和 Gemini CLI 用
-- skills 全部放在 `skills/`
-- 可以本地安装、自由 fork、按需组合
-- source of truth 就在这个仓库里
-
-## 快速开始
-
-### Claude
-
-整个仓库直接接入：
-
-```bash
-claude --add-dir /path/to/game-superpowers-skills-only
+```sh
+npx skills add mike007jd/game-superpowers --skill game-superpowers -a codex claude-code -g
 ```
 
-或者装到个人 skills：
+为 Codex 和 Claude Code 安装到用户范围，所有项目均可使用。去掉 `-g` 就是项目级安装；去掉 `-a codex claude-code` 可交互选择 agent。
 
-```bash
-bash scripts/install-claude-skills.sh
+更新或卸载这份全局安装：
+
+```sh
+npx skills update game-superpowers -g
+npx skills remove game-superpowers -a codex claude-code -g
 ```
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/install-claude-skills.ps1
-```
-
-这会把 symlink 装进 `~/.claude/skills/`，并在当前仓库里顺手装上 git hooks，后续 `git pull` 和切分支时会自动刷新这些入口。
-
-### Codex
-
-装到用户 skills：
-
-```bash
-bash scripts/install-codex-skills.sh
-```
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/install-codex-skills.ps1
-```
-
-这会安装 `~/.agents/skills/game-superpowers/` 这个包根目录，并启用同样的自动刷新 hooks。
-
-或者把需要的 skills 复制或 symlink 到项目的 `.agents/skills/`。
-
-### Gemini CLI
-
-从本地仓库直接接入：
-
-```bash
-gemini extensions link /path/to/game-superpowers-skills-only
-```
-
-或者从 GitHub 安装：
-
-```bash
-gemini extensions install https://github.com/haoshengli/game-superpowers-skills-only
-```
-
-Gemini 会通过仓库根目录的 `GEMINI.md` 和 `gemini-extension.json` 加载这套 skills。
-
-完整安装说明见 [`INSTALL.md`](./INSTALL.md)。
-
-### 安装后的更新机制
-
-- 已有 skill 内容改动会立刻生效，因为安装出来的是指回仓库的 symlink
-- skill 的新增、改名、删除会在后续 `git pull` 和切分支后自动刷新
-- 如果你想手动强制刷新，可以运行 `bash scripts/sync-all-skills.sh`
-- Windows 下可以运行 `powershell -ExecutionPolicy Bypass -File scripts/sync-all-skills.ps1`
+项目级安装更新时把 `-g` 改为 `-p`，卸载时去掉 `-g`。
 
 ## 使用
 
-### 入口
+Codex 中用 `$game-superpowers`，Claude Code 中用 `/game-superpowers`，后面直接写需求：
 
-- Claude：`/using-game-superpowers`
-- Codex：`$using-game-superpowers`
-- Gemini：直接正常提问，例如 `Use Game Superpowers to audit this game project.`
-
-### 示例
-
-- “Use Game Superpowers to audit this existing game project's UI/UX and feedback design.”
-- “Use Game Superpowers to build a polished 2D web prototype with strong HUD and feedback.”
-- “Use Game Superpowers to review whether this game is closer to first-playable or production-feature quality.”
-- “Use Game Superpowers with spec-driven planning and create requirements, spec, design, and tasks for this combat feature.”
-
-## 轨道
-
-```mermaid
-flowchart TD
-    A[User request] --> B[using-game-superpowers]
-    B --> C{Classify task}
-    C -->|build| D[Build Track]
-    C -->|audit| E[Audit Track]
-    C -->|repair| F[Repair Track]
-    C -->|polish| G[Polish Track]
-    D --> H[Scope + strategy + implementation skills]
-    E --> I[Audit skills + scorecard + roadmap]
-    F --> J[Targeted repair skills]
-    G --> K[UX + feedback + verifier skills]
+```text
+用 $game-superpowers 把这个想法做成可玩的游戏。
+用 $game-superpowers 改善这个游戏的核心交互和节奏。
+用 $game-superpowers 改善 HUD 和首次游玩体验。
 ```
 
-## 可选的 Spec-Driven Workflow
+## 为什么精简
 
-如果团队希望把 planning 产物长期保存在目标项目仓库里，Game Superpowers 现在支持一条轻量的、受 OpenSpec 启发的 workflow。
+参考 [BubuGameSkill](https://github.com/mike007jd/BubuGameSkill) 的思路：保留游戏创作知识，让模型根据项目判断，细节按需读取。一个入口替代原来的技能集合，移除通用开发流程、平台专用流程和固定玩法类型预设。
 
-- 常驻 specs：`specs/<capability>/spec.md`
-- 单次 change 包：`changes/<change-id>/proposal.md`、`design.md`、`tasks.md`
-- spec delta：`changes/<change-id>/specs/<capability>/spec.md`
+- [SKILL.md](skills/game-superpowers/SKILL.md)：统一入口。
+- [玩法](skills/game-superpowers/references/gameplay.md)：玩家行为、选择、系统和内容。
+- [表现](skills/game-superpowers/references/presentation.md)：画面、动作、声音和反馈。
+- [玩家体验](skills/game-superpowers/references/player-experience.md)：操作、UI、引导和流程。
 
-当用户明确提到 `requirements/spec/design/tasks`、OpenSpec，或者希望把规划产物持久化到仓库里时，使用 `game-spec-driven-planning`。
+## 从旧版升级
 
-## 仓库结构
+不再提供 `gsp-*`、`using-game-superpowers`、自制安装器和自动同步 hooks。旧安装不会自动迁移。更新旧仓库前，先用原安装方式卸载旧包或旧技能，仅移除 Game Superpowers 添加的同步 hook 区块，保留其他 hooks 和技能；随后用上面的命令安装单一 skill。新的 CLI 命令管理新安装，不会清理旧安装。
 
-- `skills/`：完整的 Game Superpowers skills 库
-- `schemas/`：共享的结构化输出 schema
-- `shared/`：模板、参考资料、检查表、示例
-- `.claude/skills/`：供 Claude Code 发现的兼容 symlink，实际指回 `skills/`
-- `.agents/skills/`：供 Codex 发现的兼容 symlink，实际指回 `skills/`
-- `scripts/`：安装脚本、自动刷新脚本和校验脚本
-
-说明：
-
-- `skills/` 是唯一的 source of truth
-- `.claude/skills/` 和 `.agents/skills/` 只是兼容路径，不是第二份内容副本
-- 如果你的平台或压缩工具对 symlink 支持不好，请优先查看 `skills/`
-
-## 技能库
-
-- bootstrap 和 routing skills
-- 可选的 spec-driven planning，用来生成可持久化的 change artifacts
-- build planning 和 strategy skills
-- UX、UI、feedback skills
-- mechanics 和 systems skills
-- production 和 live patch skills
-- audit 和 scorecard skills
-- 面向 2D / 3D web 游戏工作的 browser specialist skills
-
-## 开发
-
-先读这些：
-
-- `skills/using-game-superpowers/SKILL.md`
-- `skills/game-super-build/SKILL.md`
-- `skills/game-project-audit/SKILL.md`
-- `skills/game-ux-flow-audit/SKILL.md`
-- `skills/game-feedback-design/SKILL.md`
-
-提交 PR 前，建议先运行：
-
-```bash
-python3 scripts/validate_skills.py
-```
-
-贡献规则见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。
-协作行为准则见 [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md)。
-
-## License
-
-MIT
+[MIT 许可证](LICENSE)

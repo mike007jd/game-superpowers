@@ -2,166 +2,48 @@
 
 [简体中文](./README.zh-CN.md)
 
-Game development skills for Claude Code, Codex, and Gemini CLI.
+One compact skill for building and improving games: gameplay, presentation, game feel, and the player experience.
 
-Build, audit, polish, and repair game projects with reusable game-native skills.
+## Install
 
-## At a glance
+Use the npm-distributed [skills CLI](https://github.com/vercel-labs/skills):
 
-- for Claude Code, Codex, and Gemini CLI
-- skills live in `skills/`
-- install locally, fork freely, use selectively
-- source of truth stays in this repo
-
-## Quickstart
-
-### Claude
-
-Use the whole repo:
-
-```bash
-claude --add-dir /path/to/game-superpowers-skills-only
+```sh
+npx skills add mike007jd/game-superpowers --skill game-superpowers -a codex claude-code -g
 ```
 
-Or install into your personal skills:
+This installs for Codex and Claude Code across projects. Omit `-g` for a project installation; omit `-a codex claude-code` to choose agents interactively.
 
-```bash
-bash scripts/install-claude-skills.sh
+Update or remove this global installation:
+
+```sh
+npx skills update game-superpowers -g
+npx skills remove game-superpowers -a codex claude-code -g
 ```
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/install-claude-skills.ps1
-```
-
-This installs symlinks into `~/.claude/skills/` and sets up repo-local git hooks so later `git pull` and branch switches refresh those links automatically.
-
-### Codex
-
-Install into your user skills:
-
-```bash
-bash scripts/install-codex-skills.sh
-```
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/install-codex-skills.ps1
-```
-
-This installs the `~/.agents/skills/game-superpowers/` package root and sets up the same auto-sync hooks for future pulls and checkouts.
-
-Or copy or symlink selected skills into a project's `.agents/skills/`.
-
-### Gemini CLI
-
-Install from the local repo:
-
-```bash
-gemini extensions link /path/to/game-superpowers-skills-only
-```
-
-Or install from GitHub:
-
-```bash
-gemini extensions install https://github.com/haoshengli/game-superpowers-skills-only
-```
-
-Gemini loads the extension through the repo-root `GEMINI.md` and the `gemini-extension.json` manifest.
-
-Full setup instructions: [`INSTALL.md`](./INSTALL.md)
-
-### Updates after install
-
-- edits to existing skills apply immediately because the installed entries are symlinks back to this repo
-- added, renamed, or removed skills refresh automatically after `git pull` and branch switches
-- if you want to force a refresh manually, run `bash scripts/sync-all-skills.sh`
-- on Windows, use `powershell -ExecutionPolicy Bypass -File scripts/sync-all-skills.ps1`
+For project installations, use `-p` instead of `-g` when updating, and omit `-g` when removing.
 
 ## Use
 
-### Entrypoint
+Invoke `$game-superpowers` in Codex or `/game-superpowers` in Claude Code, followed by your request:
 
-- Claude: `/using-game-superpowers`
-- Codex: `$using-game-superpowers`
-- Gemini: ask normally, for example `Use Game Superpowers to audit this game project.`
-
-### Example prompts
-
-- "Use Game Superpowers to audit this existing game project's UI/UX and feedback design."
-- "Use Game Superpowers to build a polished 2D web prototype with strong HUD and feedback."
-- "Use Game Superpowers to review whether this game is closer to first-playable or production-feature quality."
-- "Use Game Superpowers with spec-driven planning and create requirements, spec, design, and tasks for this combat feature."
-
-## Tracks
-
-```mermaid
-flowchart TD
-    A[User request] --> B[using-game-superpowers]
-    B --> C{Classify task}
-    C -->|build| D[Build Track]
-    C -->|audit| E[Audit Track]
-    C -->|repair| F[Repair Track]
-    C -->|polish| G[Polish Track]
-    D --> H[Scope + strategy + implementation skills]
-    E --> I[Audit skills + scorecard + roadmap]
-    F --> J[Targeted repair skills]
-    G --> K[UX + feedback + verifier skills]
+```text
+Use $game-superpowers to turn this idea into a playable game.
+Use $game-superpowers to improve this game's core interaction and pacing.
+Use $game-superpowers to make the HUD and first-play experience clearer.
 ```
 
-## Optional Spec-Driven Workflow
+## Why it is small
 
-For teams that want durable planning artifacts in the target repo, Game Superpowers now supports a lightweight OpenSpec-inspired workflow.
+Inspired by [BubuGameSkill](https://github.com/mike007jd/BubuGameSkill): keep the game craft, leave room for the model's judgment, and load detail only when it helps the task. One entrypoint replaces the old skill collection. General development procedures, platform-specific workflows and fixed genre assumptions are removed.
 
-- living specs: `specs/<capability>/spec.md`
-- change package: `changes/<change-id>/proposal.md`, `design.md`, `tasks.md`
-- spec delta: `changes/<change-id>/specs/<capability>/spec.md`
+- [SKILL.md](skills/game-superpowers/SKILL.md) — the entrypoint.
+- [Gameplay](skills/game-superpowers/references/gameplay.md) — player actions, choices, systems, and content.
+- [Presentation](skills/game-superpowers/references/presentation.md) — visuals, motion, sound, and feedback.
+- [Player experience](skills/game-superpowers/references/player-experience.md) — controls, UI, onboarding, and flow.
 
-Use `game-spec-driven-planning` when the user explicitly asks for `requirements/spec/design/tasks`, references OpenSpec, or wants repo-native planning artifacts that survive across sessions.
+## Upgrading from the old collection
 
-## Repo Layout
+The `gsp-*` skills, `using-game-superpowers`, custom installers, and automatic sync hooks are no longer provided. Existing installations are not migrated automatically. Before updating an old checkout, use its original uninstall method and remove only its Game Superpowers sync-hook blocks; preserve unrelated hooks and skills. Then install the single skill above. The new CLI commands manage the new installation; they do not clean up legacy installations.
 
-- `skills/` — the full Game Superpowers skill library
-- `schemas/` — shared structured output schemas
-- `shared/` — templates, references, checklists, and examples
-- `.claude/skills/` — Claude Code discovery symlinks pointing back to `skills/`
-- `.agents/skills/` — Codex discovery symlinks pointing back to `skills/`
-- `scripts/` — installers, auto-sync hooks, and validation helpers
-
-Notes:
-
-- `skills/` is the only source of truth
-- `.claude/skills/` and `.agents/skills/` are compatibility paths, not a second copy of the library
-- if your platform or archive tool handles symlinks poorly, inspect `skills/` first
-
-## Library
-
-- bootstrap and routing skills
-- optional spec-driven planning for durable change artifacts
-- build planning and strategy skills
-- UX, UI, and feedback skills
-- mechanics and systems skills
-- production and live patch skills
-- audit and scorecard skills
-- browser specialist skills for 2D and 3D web work
-
-## Development
-
-Read these first:
-
-- `skills/using-game-superpowers/SKILL.md`
-- `skills/game-super-build/SKILL.md`
-- `skills/game-project-audit/SKILL.md`
-- `skills/game-ux-flow-audit/SKILL.md`
-- `skills/game-feedback-design/SKILL.md`
-
-Before opening a pull request, run:
-
-```bash
-python3 scripts/validate_skills.py
-```
-
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for repository change rules and local validation.
-See [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md) for collaboration expectations.
-
-## License
-
-MIT
+[MIT License](LICENSE)
